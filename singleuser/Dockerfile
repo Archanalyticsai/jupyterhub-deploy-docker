@@ -1,7 +1,8 @@
-ARG UBUNTU_VERSION=16.04
-FROM ubuntu:${UBUNTU_VERSION}
-LABEL maintainer="Johannes Tegnér <johannes@jitesoft.com>"
-ARG UBUNTU_VERSION
+
+ARG DOCKER_NOTEBOOK_IMAGE
+FROM $DOCKER_NOTEBOOK_IMAGE
+
+USER root
 
 # Ubuntu 18.04 have tesseract-ocr v4 in the main repository, hence no need to add the tesseract repository on it.
 RUN if [ "${UBUNTU_VERSION}" = "16.04" ]; then \
