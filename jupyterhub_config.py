@@ -67,6 +67,8 @@ c.JupyterHub.db_url = 'postgresql://postgres:{password}@{host}/{db}'.format(
     password=os.environ['POSTGRES_PASSWORD'],
     db=os.environ['POSTGRES_DB'],
 )
+# Add jupyterlab
+c.DockerSpawner.environment = { 'JUPYTER_ENABLE_LAB': 'yes' }
 
 # Whitlelist users and admins
 c.Authenticator.whitelist = whitelist = set()
